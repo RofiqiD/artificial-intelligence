@@ -27,7 +27,7 @@ def hitung_kata():
 root = tk.Tk()
 root.title("Penghitung Jumlah Kata")
 root.geometry("600x500")
-root.configure(bg="#f0f4f7")
+root.configure(bg="#ffffff")
 
 # Gaya huruf
 judul_font = font.Font(family="Helvetica", size=16, weight="bold")

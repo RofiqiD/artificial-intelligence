@@ -2,29 +2,20 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import font
 
-# Fungsi brute force untuk menandai posisi kata
 def brute_force_positions(text, pattern):
-    n = len(text)
-    m = len(pattern)
+    words = text.split()
     positions = []
 
-    i = 0
-    while i <= n - m:
-        match = True
-        for j in range(m):
-            if text[i + j] != pattern[j]:
-                match = False
-                break
-        if match:
-            positions.append((i, i + m))
-            i += m
-        else:
-            i += 1
+    index = 0 
+    for word in words:
+        word_len = len(word)
+        if word == pattern:
+            positions.append((index, index + word_len))
+        index += word_len + 1  
     return positions
 
-# Fungsi untuk memproses teks dan mewarnai hasil
+
 def proses_teks():
-    # Ambil teks dan kata kunci
     paragraph = entry_paragraph.get("1.0", tk.END).strip()
     keyword = entry_keyword.get().strip()
     hasil_text.delete("1.0", tk.END)
@@ -32,13 +23,13 @@ def proses_teks():
     if paragraph and keyword:
         hasil_text.insert(tk.END, paragraph)
 
-        # Bersihkan tag lama
+      
         hasil_text.tag_remove("highlight", "1.0", tk.END)
 
-        # Cari posisi menggunakan brute force
+    
         positions = brute_force_positions(paragraph, keyword)
 
-        # Tandai setiap posisi yang cocok
+    
         for start, end in positions:
             start_index = f"1.0 + {start} chars"
             end_index = f"1.0 + {end} chars"

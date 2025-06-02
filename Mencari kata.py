@@ -29,7 +29,7 @@ def proses_teks():
     
         positions = brute_force_positions(paragraph, keyword)
 
-    
+        # Tandai setiap posisi yang cocok
         for start, end in positions:
             start_index = f"1.0 + {start} chars"
             end_index = f"1.0 + {end} chars"

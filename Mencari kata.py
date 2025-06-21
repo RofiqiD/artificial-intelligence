@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import font
+ #mcb semua kemungkinan
 
 def brute_force_positions(text, pattern):
     words = text.split()
@@ -9,7 +10,7 @@ def brute_force_positions(text, pattern):
     index = 0 
     for word in words:
         word_len = len(word)
-        if word == pattern:
+        if word == pattern:             #keyword 
             positions.append((index, index + word_len))
         index += word_len + 1  
     return positions
@@ -34,6 +35,7 @@ def proses_teks():
             start_index = f"1.0 + {start} chars"
             end_index = f"1.0 + {end} chars"
             hasil_text.tag_add("highlight", start_index, end_index)
+
 
 # GUI
 root = tk.Tk()
